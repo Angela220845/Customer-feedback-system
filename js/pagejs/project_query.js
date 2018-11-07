@@ -1,12 +1,17 @@
 var tableDataObj = [
     {
         firstClom:'客户满意率',
-        secondClom:'该版本周期',
-        thirdClom:'',
+        secondClom:'各客户调研满意率之和',
+        thirdClom:'96%',
     },
     {
         firstClom:'客户满意率',
-        secondClom:'该版本周期',
+        secondClom:'实际参与调研的客户数',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'客户满意率',
         thirdClom:'95%',
     },
     {
@@ -16,34 +21,93 @@ var tableDataObj = [
     },
     {
         firstClom:'客户满意率',
-        secondClom:'该版本周期',
-        thirdClom:'95%',
-    },
-    {
-        firstClom:'客户满意率',
-        secondClom:'该版本周期',
+        secondClom:'平均版本迭代周期',
         thirdClom:'95%',
     },
 
     {
         firstClom:'客户满意率',
-        secondClom:'该版本周期',
+        secondClom:'迭代周期提升率',
         thirdClom:'95%',
     },
     {
         firstClom:'客户满意率',
-        secondClom:'该版本周期',
+        secondClom:'项目交付后半年内生产缺陷',
         thirdClom:'95%',
     },
     {
         firstClom:'客户满意率',
-        secondClom:'该版本周期',
+        secondClom:'内测缺陷总数',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'缺陷逃逸率',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'项目交付后已发现的有效缺陷总数',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'代码规模',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'平均缺陷密度',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'严重级别的缺陷数',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'内部测试发现的有效缺陷总数',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'严重差错率',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'实际交付日期',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'计划交付日期',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'本年度内计划交付的项目总数',
+        thirdClom:'95%',
+    },
+    {
+        firstClom:'客户满意率',
+        secondClom:'项目按时完成率',
         thirdClom:'95%',
     }
 ],$tbody = $('tbody'),$bodyStr='';
-$bodyStr= '';
+$bodyStr= '',i= 1,count=0;
+_.each($tbody.find('tr'),function(item,index){
+    console.log(item)
+})
 _.each(tableDataObj,function(item,index){
+    count++;
+    if(index == 3*count+i){
+        console.log(index)
+    }else{
+        console.log(index)
+    }
     $bodyStr += '<tr><td>{0}</td><td>{1}</td><td>{2}</td></tr>'.format(item.firstClom,item.secondClom,item.thirdClom)
 })
-$tbody.append($bodyStr)
+// $tbody.append($bodyStr)
 console.log($tbody)
