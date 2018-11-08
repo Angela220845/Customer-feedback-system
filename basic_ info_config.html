@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/basic_info_config.css">
+    <title>基础信息配置</title>
+</head>
+
+<body>
+    <h1>基础信息配置</h1>
+    <div class="tab-contain">
+        <ul id="tabs">
+            <li class="current" data-source="tab1">客户满意率配置</li>
+            <li data-source="tab2">平均版本迭代周期</li>
+            <li data-source="tab3">年度计划项目交付总数</li>
+        </ul>
+        <div id="content">
+            <div id="tab1" class="item show">
+            <button class="delete">删除</button><button class="add">添加</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>项目</th>
+                            <th>版本</th>
+                            <th>各客户调研满意率之和</th>
+                            <th>实际参与调研的客户数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-id="0">
+                            <td data-source="项目名称">umc1</td>
+                            <td data-source="版本">2018.09</td>
+                            <td data-source="各客户调研满意率之和">450</td>
+                            <td data-source="实际参与调研的客户数">500</td>
+                        </tr>
+                        <tr data-id="1">
+                            <td data-source="项目名称">umc2</td>
+                            <td data-source="版本">2018.09</td>
+                            <td data-source="各客户调研满意率之和">450</td>
+                            <td data-source="实际参与调研的客户数">500</td>
+                        </tr>
+                        <tr data-id="2">
+                            <td data-source="项目名称">umc3</td>
+                            <td data-source="版本">2018.09</td>
+                            <td data-source="各客户调研满意率之和">450</td>
+                            <td data-source="实际参与调研的客户数">500</td>
+                        </tr>
+                        <tr data-id="3">
+                            <td data-source="项目名称">umc4</td>
+                            <td data-source="版本">2018.09</td>
+                            <td data-source="各客户调研满意率之和">450</td>
+                            <td data-source="实际参与调研的客户数">500</td>
+                        </tr>
+                        <tr data-id="4">
+                            <td data-source="项目名称">umc5</td>
+                            <td data-source="版本">2018.09</td>
+                            <td data-source="各客户调研满意率之和">450</td>
+                            <td data-source="实际参与调研的客户数">500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="tab2" class="item">
+            <button class="delete">删除</button><button class="add">添加</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>项目</th>
+                            <th>平均迭代周期</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-source="项目">DMP</td>
+                            <td data-source="平均迭代周期">30天</td>
+                        </tr>
+                        <tr>
+                            <td data-source="项目">DMP</td>
+                            <td data-source="平均迭代周期">30天</td>
+                        </tr>
+                        <tr>
+                            <td data-source="项目">DMP</td>
+                            <td data-source="平均迭代周期">30天</td>
+                        </tr>
+
+                        <tr>
+                            <td data-source="项目">DMP</td>
+                            <td data-source="平均迭代周期">30天</td>
+                        </tr>
+                        <tr>
+                            <td data-source="项目">DMP</td>
+                            <td data-source="平均迭代周期">30天</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="tab3" class="item">
+            <button class="delete">删除</button><button class="add">添加</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>年份</th>
+                            <th>项目计划总数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-source="年份">2017</td>
+                            <td data-source="项目计划总数">4</td>
+                        </tr>
+                        <tr>
+                            <td data-source="年份">2017</td>
+                            <td data-source="项目计划总数">4</td>
+                        </tr>
+                        <tr>
+                            <td data-source="年份">2017</td>
+                            <td data-source="项目计划总数">4</td>
+                        </tr>
+
+                        <tr>
+                            <td data-source="年份">2017</td>
+                            <td data-source="项目计划总数">4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper hide first">
+        <div class="dialog add">
+            <form action="/api/urds" method="POST">
+                <dl>
+                    <dt>项目：</dt>
+                    <dd>
+                        <select name="project_name" id="project_name">
+                            <option value="umc1">umc1</option>
+                            <option value="umc2">umc2</option>
+                            <option value="umc3">umc3</option>
+                            <option value="umc4">umc4</option>
+                        </select>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>版本：</dt>
+                    <dd>
+                        <select name="version" id="version">
+                            <option value="2018.05">2018.05</option>
+                            <option value="2018.06">2018.06</option>
+                            <option value="2018.07">2018.07</option>
+                            <option value="2018.08">2018.08</option>
+                        </select>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>客户满意率之和：</dt>
+                    <dd>
+                        <input type="number">
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>实际参与调研客户数：</dt>
+                    <dd>
+                        <input type="number">
+                    </dd>
+                </dl>
+                <div class="btn">
+                    <button class="save">保存</button><button class="give_up">放弃</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="wrapper hide second">
+        <div class="dialog add">
+            <form action="/api/urds" method="POST">
+                <dl>
+                    <dt>年份：</dt>
+                    <dd>
+                        <select name="time" id="time">
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                        </select>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>项目计划总数：</dt>
+                    <dd>
+                        <select name="number" id="project_num">
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                        </select>
+                    </dd>
+                </dl>
+            </form>
+        </div>
+    </div>
+    <div class="wrapper hide third">
+        <div class="dialog add">
+            <form action="/api/urds" method="POST">
+                <dl>
+                    <dt>年份：</dt>
+                    <dd>
+                        <select name="time" id="time">
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                        </select>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>项目计划总数：</dt>
+                    <dd>
+                        <select name="number" id="number">
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                        </select>
+                    </dd>
+                </dl>
+            </form>
+        </div>
+    </div>
+    <div class="wrapper hide">
+        <div class="dialog err">
+            <h4>警告</h4>
+            <hr>
+            <div class="content">
+                未选中任何项目！
+            </div>
+            <button class="close">关闭</button>
+        </div>
+    </div>
+    <div class="wrapper hide">
+        <div class="dialog suc">
+            <h4>确定删除该项目？</h4>
+            <hr>
+            <div class="content"></div>
+            <div class="btn">
+                <button class="save">保存</button><button class="give_up">放弃</button>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="./js/pagejs/basic_info_config.js"></script>
+</body>
+
+</html>
