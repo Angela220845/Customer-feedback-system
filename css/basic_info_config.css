@@ -1,0 +1,209 @@
+h1 {
+    text-align: center
+}
+
+.tab-contain {
+    margin: 50px auto;
+    width: 1000px;
+}
+
+#tabs {
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#tabs li {
+    float: left;
+    margin: 0;
+}
+
+li {
+    position: relative;
+    padding: 10px 50px;
+    float: left;
+    text-decoration: none;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+    border-radius: 5px;
+}
+
+li:nth-child(1) {
+    background-color: rgb(88, 236, 88)
+}
+
+li:nth-child(2) {
+    background-color: rgb(106, 104, 240)
+}
+
+li:nth-child(3) {
+    background-color: aqua
+}
+
+.current {
+    outline: 0;
+    background: #fff;
+    /* z-index: 4; */
+}
+
+.hoverItem:hover {
+    color: white;
+}
+
+#content {
+    background: #fff;
+    padding: 50px 0 0 0;
+    height: 220px;
+    position: relative;
+    box-shadow: 0 -2px 1px -2px rgba(0, 0, 0, .5);
+}
+
+.item {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+table {
+    border: 1px solid #333;
+    border-collapse: collapse;
+    width: 100%;
+    height: 232px;
+}
+
+th {
+    height: 50px;
+}
+
+tr {
+    cursor: pointer;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#tab1 th {
+    background-color: rgb(88, 236, 88)
+}
+
+#tab2 th {
+    background-color: rgb(106, 104, 240)
+}
+
+#tab3 th {
+    background-color: aqua
+}
+
+button {
+    float: right;
+    outline: none;
+    height: 28px;
+    border: none;
+    background-color: #00a8e6;
+    border-radius: 5px;
+    padding: 2px 15px;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+button.delete {
+    background-color: rgb(212, 79, 79)
+}
+
+select,
+input {
+    outline: none;
+    height: 28px;
+    width: 212px;
+}
+
+select {
+    height: 30px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+input {
+    height: 28px;
+    text-indent: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+dt {
+    width: 214px;
+    float: left;
+}
+
+.wrapper {
+    background-color: rgba(32, 31, 31, 0.8);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    z-index: 1;
+    padding: 10px 20px;
+    border: 1px solid #00a8e6;
+    width: 450px;
+    height: 294px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #9ecbdb;
+    background-color: aliceblue;
+}
+.dialog.err{
+    height: 190px;
+}
+.dialog h4{
+    color: red;
+    text-align: center;
+}
+.dialog.err .content{
+    text-align: center;
+}
+.dialog button {
+    margin-top: 30px;
+}
+
+.dialog button.give_up {
+    background-color: rgb(212, 79, 79);
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.tr_hover {
+    background-color: #ccc;
+}
+.select{
+    background-color: #00a8e6;
+}
