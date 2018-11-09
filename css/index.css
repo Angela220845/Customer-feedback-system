@@ -43,7 +43,7 @@ td {
     text-align: center;
 }
 
-button {
+button,input[type=submit] {
     border: none;
     background-color: #00a8e6;
     border-radius: 5px;
