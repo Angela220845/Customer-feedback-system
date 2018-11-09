@@ -1,18 +1,20 @@
 $(function () {
     var $content = $('#content div'),
         $tabTitle = $('#tabs li'),
-        $cancelBtn = $('.give_up'),
-        $saveBtn = $('.save'),
+        $cancelBtn = $('input[type=reset]'),
+        $saveBtn = $('input[type=submit]'),
         $addBtn1 = $('#tab1').find('.add'),
         $addBtn2 = $('#tab2').find('.add'),
         $addBtn3 = $('#tab3').find('.add'),
+        $deleteBtn1 = $('#tab1').find('.delete'),
+        $deleteBtn2 = $('#tab2').find('.delete'),
+        $deleteBtn3 = $('#tab3').find('.delete'),
         $tbody = $('tbody'),
         $table = $('table'),
         $addModal1 = $('.first'),
         $addModal2 = $('.second'),
         $addModal3 = $('.third'),
 
-        $deleteBtn = $('.delete'),
         $detailModal = $('.dialog.suc'),
         $errMsgModal = $('.dialoa.err'),
         isShowAddModal = false
@@ -54,46 +56,37 @@ $(function () {
         $(this).addClass('select').siblings().removeClass('select')
     })
     // 添加功能
-    $addBtn1.on('click', function (e) {
-        modalAction($addModal1, true);
-    })
-    $cancelBtn.on('click', function (e) {
-        e.preventDefault()
-        modalAction($addModal1, false);
-    })
-    $saveBtn.on('click', function (e) {
-        e.preventDefault()
-        $.ajax({
-            url: 'http://10.186.30.166:25715/api/user/login',
-            type: 'POST',
-            data: {
-                user_group: 'root',
-                user: window.btoa('root'),
-                password: window.btoa('root')
-            },
-            success: function (suc) {
-                console.log(suc)
-            },
-            error: function (err) {
-                console.log(err)
-            }
+    function addProject($addBtn,$modal){
+        $addBtn.on('click', function (e) {
+            modalAction($modal, true);
         })
-        modalAction($addModal1,false)
-    })
+        $cancelBtn.on('click', function (e) {
+            e.preventDefault()
+            $modal.find('input:not([type="submit"])input:not([type="reset"])').val('')
+            modalAction($modal, false);
+        })
+        $saveBtn.on('click', function (e) {
+            modalAction($modal,false)
+        })
+    }
+    addProject($addBtn1,$addModal1)
+    addProject($addBtn2,$addModal2)
+    addProject($addBtn3,$addModal3)
+
     // 删除功能
 
-    // $deleteBtn.on('click', function (e) {
-    //     var $str = '',$content = $detailModal.find('.content');
-    //     if ($('.select').length != 0) {
-    //         $('.wrapper').eq(2).addClass('show').removeClass('hide')
-    //         $('.select').find('td').each(function(item,index){
-    //             console.log(index)
-    //         $str+= `<dl><dt>${$(index).attr('data-source')}</dt><dd>${index.innerText}</dd></dl>`
+    $deleteBtn.on('click', function (e) {
+        var $str = '',$content = $detailModal.find('.content');
+        if ($('.select').length != 0) {
+            $('.wrapper').eq(2).addClass('show').removeClass('hide')
+            $('.select').find('td').each(function(item,index){
+                console.log(index)
+            $str+= `<dl><dt>${$(index).attr('data-source')}</dt><dd>${index.innerText}</dd></dl>`
 
-    //         })
-    //         $content.append($str)
-    //     } else {
-    //         $('.wrapper').eq(1).addClass('show').removeClass('hide')
-    //     }
-    // })
+            })
+            $content.append($str)
+        } else {
+            $('.wrapper').eq(1).addClass('show').removeClass('hide')
+        }
+    })
 })
