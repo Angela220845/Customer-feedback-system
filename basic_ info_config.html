@@ -73,24 +73,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr data-id="0">
                             <td data-source="项目">DMP</td>
                             <td data-source="平均迭代周期">30天</td>
                         </tr>
-                        <tr>
+                        <tr data-id="1">
                             <td data-source="项目">DMP</td>
                             <td data-source="平均迭代周期">30天</td>
                         </tr>
-                        <tr>
+                        <tr data-id="2">
                             <td data-source="项目">DMP</td>
                             <td data-source="平均迭代周期">30天</td>
                         </tr>
 
-                        <tr>
+                        <tr data-id="3">
                             <td data-source="项目">DMP</td>
                             <td data-source="平均迭代周期">30天</td>
                         </tr>
-                        <tr>
+                        <tr data-id="4">
                             <td data-source="项目">DMP</td>
                             <td data-source="平均迭代周期">30天</td>
                         </tr>
@@ -107,20 +107,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr data-id="0">
                             <td data-source="年份">2017</td>
                             <td data-source="项目计划总数">4</td>
                         </tr>
-                        <tr>
+                        <tr data-id="1">
                             <td data-source="年份">2017</td>
                             <td data-source="项目计划总数">4</td>
                         </tr>
-                        <tr>
+                        <tr data-id="2">
                             <td data-source="年份">2017</td>
                             <td data-source="项目计划总数">4</td>
                         </tr>
 
-                        <tr>
+                        <tr data-id="3">
                             <td data-source="年份">2017</td>
                             <td data-source="项目计划总数">4</td>
                         </tr>
@@ -234,23 +234,13 @@
             </form>
         </div>
     </div>
-    <div class="wrapper hide">
-        <div class="dialog err">
-            <h4>警告</h4>
-            <hr>
-            <div class="content">
-                未选中任何项目！
-            </div>
-            <button class="close">关闭</button>
-        </div>
-    </div>
-    <div class="wrapper hide">
-        <div class="dialog suc">
+    <div class="wrapper hide suc">
+        <div class="dialog">
             <h4>确定删除该项目？</h4>
             <hr>
             <div class="content"></div>
             <div class="btn">
-                <button class="save">保存</button><button class="give_up">放弃</button>
+                <input type="submit" value="确定"><input type="reset" value="放弃">
             </div>
         </div>
     </div>

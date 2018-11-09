@@ -14,10 +14,8 @@ $(function () {
         $addModal1 = $('.first'),
         $addModal2 = $('.second'),
         $addModal3 = $('.third'),
-
-        $detailModal = $('.dialog.suc'),
-        $errMsgModal = $('.dialoa.err'),
-        isShowAddModal = false
+        $sucModal = $('.wrapper.suc'),
+        isShowAddModal = false;
     // tab切换效果
 
     function modalAction($modal, isShowAddModal) {
@@ -56,37 +54,58 @@ $(function () {
         $(this).addClass('select').siblings().removeClass('select')
     })
     // 添加功能
-    function addProject($addBtn,$modal){
+    function addProject($addBtn, $modal) {
         $addBtn.on('click', function (e) {
             modalAction($modal, true);
         })
+
         $cancelBtn.on('click', function (e) {
-            e.preventDefault()
-            $modal.find('input:not([type="submit"])input:not([type="reset"])').val('')
             modalAction($modal, false);
         })
         $saveBtn.on('click', function (e) {
-            modalAction($modal,false)
+            modalAction($modal, false)
         })
     }
-    addProject($addBtn1,$addModal1)
-    addProject($addBtn2,$addModal2)
-    addProject($addBtn3,$addModal3)
+    addProject($addBtn1, $addModal1)
+    addProject($addBtn2, $addModal2)
+    addProject($addBtn3, $addModal3)
 
     // 删除功能
+    deleteProject($deleteBtn1);
+    deleteProject($deleteBtn2);
+    deleteProject($deleteBtn3);
 
-    $deleteBtn.on('click', function (e) {
-        var $str = '',$content = $detailModal.find('.content');
-        if ($('.select').length != 0) {
-            $('.wrapper').eq(2).addClass('show').removeClass('hide')
-            $('.select').find('td').each(function(item,index){
-                console.log(index)
-            $str+= `<dl><dt>${$(index).attr('data-source')}</dt><dd>${index.innerText}</dd></dl>`
-
-            })
-            $content.append($str)
-        } else {
-            $('.wrapper').eq(1).addClass('show').removeClass('hide')
-        }
-    })
+    function deleteProject($deleteBtn) {
+        $deleteBtn.on('click', function (e) {
+            var $str = '',
+                project_id,
+                $msgContent = $sucModal.find('.content');
+            if ($('.select').length != 0) {
+                $sucModal.addClass('show').removeClass('hide')
+                project_id = $('.select').attr('data-id')
+                $('.select').find('td').each(function (item, index) {
+                    $str += `<dl><dt>${$(index).attr('data-source')}</dt><dd>${index.innerText}</dd></dl>`
+                })
+                $msgContent.append($str)
+                $cancelBtn.on('click', function (e) {
+                    modalAction($sucModal, false);
+                    window.location.reload() // 处理弹框关闭之后再次做删除操作弹框内信息显示错误的问题
+                })
+                $saveBtn.on('click', function (e) {
+                    e.preventDefault()
+                    $.ajax({
+                        url: '/api/project/delete',
+                        data: {
+                            project_id: project_id
+                        },
+                        type: 'POST'
+                    })
+                    modalAction($sucModal, false);
+                    window.location.reload()
+                })
+            } else {
+                alert('未选中任何项目！')
+            }
+        })
+    }
 })
